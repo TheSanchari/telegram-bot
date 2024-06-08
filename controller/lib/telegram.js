@@ -1,4 +1,5 @@
 const connection  = require('./connection')
+const quotesGenerator = require('./quotesGenerator')
 exports.sendMessage = (messageObject,messageText)=> {
     console.log("inside this send Message")
     return connection.axiosInstance.get('sendMessage',{
@@ -16,8 +17,12 @@ exports.handleMessage = async(messageObject) => {
             case "start":
                 return this.sendMessage(messageObject,"Hi! This bot has been created by Sanchari!")
                 break;
-
-        
+            case "lulu":
+                return this.sendMessage(messageObject,"Hi! Lulu")
+            case "quote":
+                const msg  = await quotesGenerator()
+                return this.sendMessage(messageObject,msg)
+                return 
             default:
                 return this.sendMessage(messageObject,"Hi! I dont know this command")
                 break;

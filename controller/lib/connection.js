@@ -3,6 +3,7 @@ const { TOKEN, SERVER_URL } = process.env
 const baseUrl = `https://api.telegram.org/bot${TOKEN}`
 
 function getAxiosInstance () {
+    console.log('BASEURL',baseUrl)
     return {
          get(method,params){
             return axios.get(`${method}`,{
