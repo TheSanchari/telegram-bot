@@ -17,8 +17,6 @@ exports.handleMessage = async(messageObject) => {
             case "start":
                 return this.sendMessage(messageObject,"Hi! This bot has been created by Sanchari!")
                 break;
-            case "lulu":
-                return this.sendMessage(messageObject,"Hi! Lulu")
             case "quote":
                 const msg  = await quotesGenerator()
                 return this.sendMessage(messageObject,msg)
